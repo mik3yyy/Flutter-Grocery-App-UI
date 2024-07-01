@@ -12,47 +12,50 @@ class CartScreen extends StatelessWidget {
     return Scaffold(
       body: SafeArea(
         child: SingleChildScrollView(
-          child: Column(
-            children: [
-              SizedBox(
-                height: 25,
-              ),
-              Text(
-                "My Cart",
-                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-              ),
-              SizedBox(
-                height: 20,
-              ),
-              Column(
-                children: getChildrenWithSeperator(
-                  addToLastChild: false,
-                  widgets: demoItems.map((e) {
-                    return Container(
-                      padding: EdgeInsets.symmetric(
+          child: Padding(
+            padding: EdgeInsets.symmetric(horizontal: 20),
+            child: Column(
+              children: [
+                SizedBox(
+                  height: 25,
+                ),
+                Text(
+                  "My Cart",
+                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                ),
+                SizedBox(
+                  height: 20,
+                ),
+                Column(
+                  children: getChildrenWithSeperator(
+                    addToLastChild: false,
+                    widgets: demoItems.map((e) {
+                      return Container(
+                        // padding: EdgeInsets.symmetric(
+                        //   horizontal: 20,
+                        // ),
+                        width: double.maxFinite,
+                        child: ChartItemWidget(
+                          item: e,
+                        ),
+                      );
+                    }).toList(),
+                    seperator: Padding(
+                      padding: const EdgeInsets.symmetric(
                         horizontal: 25,
                       ),
-                      width: double.maxFinite,
-                      child: ChartItemWidget(
-                        item: e,
+                      child: Divider(
+                        thickness: 1,
                       ),
-                    );
-                  }).toList(),
-                  seperator: Padding(
-                    padding: const EdgeInsets.symmetric(
-                      horizontal: 25,
-                    ),
-                    child: Divider(
-                      thickness: 1,
                     ),
                   ),
                 ),
-              ),
-              Divider(
-                thickness: 1,
-              ),
-              getCheckoutButton(context)
-            ],
+                Divider(
+                  thickness: 1,
+                ),
+                getCheckoutButton(context)
+              ],
+            ),
           ),
         ),
       ),

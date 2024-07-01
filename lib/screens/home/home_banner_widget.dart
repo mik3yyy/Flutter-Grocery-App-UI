@@ -6,7 +6,8 @@ class HomeBanner extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 500,
+      // padding: EdgeInsets.symmetric(horizontal: ),
+      width: MediaQuery.sizeOf(context).width * .9,
       height: 115,
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(15),
